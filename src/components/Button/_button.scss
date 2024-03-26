@@ -1,15 +1,25 @@
 /* Button component */
-button {
-  color: #fff;
-  background-color: #6b20c0;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid #fff;
+.btn {
   transition: 0.3s all ease-in-out;
 
-  &:hover {
-    background-color: #fff;
-    color: #6b20c0;
-    border: 1px solid #6b20c0;
+  &-primary {
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: #6b20c0;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+
+    &:hover {
+      background-color: #fff;
+      color: #6b20c0;
+      border: 1px solid #6b20c0;
+    }
+  }
+
+  &-back {
+    width: fit-content;
+    &:hover {
+      color: #6b20c0;
+    }
   }
 }
