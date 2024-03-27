@@ -6,11 +6,15 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import SignupForm from "./components/Signup/SignupForm.tsx";
 import LoginForm from "./components/LoginForm/LoginForm.tsx";
 import Welcome from "./components/Welcome/Welcome.tsx";
+import ErrorMessage from "./components/ErrorMessage/ErrorMessage.tsx";
+import Feed from "./components/Feed/Feed.tsx";
+import Profile from "./components/Profile/Profile.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorMessage label="Page not found" />,
     children: [
       {
         path: "",
@@ -26,7 +30,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/feed",
-        element: <SignupForm />,
+        element: <Feed />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
     ],
   },

@@ -1,0 +1,18 @@
+/* SinglePost component */
+.single-post {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  color: #2e2b33;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  max-width: 50rem;
+
+  &__stats {
+    border-top: 1px solid #2e2b33;
+    padding-top: 1rem;
+    display: flex;
+    gap: 1rem;
+  }
+}

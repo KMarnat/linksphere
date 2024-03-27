@@ -1,13 +1,16 @@
 /* Login component */
 .login {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  height: 100dvh;
 
-  background-color: #fff;
-  color: #2e2b33;
-  padding: 1rem 2rem;
-  border-radius: 0.5rem;
-  width: 26rem;
+  &__panel {
+    background-color: #fff;
+    color: #2e2b33;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    width: 26rem;
+  }
 
   .form {
     &__email,

@@ -1,12 +1,18 @@
 /* Welcome component */
 .welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  height: 100dvh;
 
   &__panel {
     color: #2e2b33;
     background-color: #fff;
     padding: 1rem 2rem;
     border-radius: 0.5rem;
+    width: 26rem;
   }
   &__buttons {
     display: flex;
