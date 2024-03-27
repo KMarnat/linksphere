@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!email || !password) return;
 
@@ -26,7 +26,7 @@ const LoginForm = () => {
           <label htmlFor="password">Password</label>
           <input type="password" id="password" onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <Button type="primary" onClick={handleSubmit} label="Log in" />
+        <Button type="primary" onClick={() => handleSubmit} label="Log in" />
       </form>
     </section>
   );

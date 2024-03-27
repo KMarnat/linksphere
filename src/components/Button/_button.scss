@@ -16,6 +16,18 @@
     }
   }
 
+  &-secondary {
+    border: 1px solid #6b20c0;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+
+    &:hover {
+      border: 1px solid #fff;
+      background-color: #6b20c0;
+      color: #fff;
+    }
+  }
+
   &-back {
     width: fit-content;
     &:hover {
