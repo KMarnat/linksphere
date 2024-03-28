@@ -1,23 +1,30 @@
-import { useEffect } from "react";
-import posts from "../../utils/tempPosts";
 import SinglePost from "../SinglePost/SinglePost";
 import { getPosts } from "../../services/apiPosts";
+import { useQuery } from "@tanstack/react-query";
 
 const Feed = () => {
-  useEffect(() => {
-    getPosts().then((data: any) => console.log(data));
+  const {
+    isLoading,
+    data: posts,
+    error,
+  } = useQuery({
+    queryKey: ["posts"],
+    queryFn: getPosts,
   });
+
+  if (error) console.error(error);
+
+  if (isLoading) return <span>LOADING</span>;
 
   return (
     <section className="feed">
-      {posts.map((post, i) => (
+      {posts?.map((post) => (
         <SinglePost
-          name={post.fullName}
           content={post.content}
-          likes={post.likes}
-          comments={post.comments}
-          key={i}
-        />
+          post_id={post.id}
+          user_id={post.user_id}
+          key={post.id}
+        ></SinglePost>
       ))}
     </section>
   );

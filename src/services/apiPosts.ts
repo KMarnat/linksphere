@@ -9,5 +9,5 @@ export const getPosts = async (): Promise<Post[]> => {
     throw new Error("Posts could not be loaded");
   }
 
-  return data;
+  return data || [];
 };
