@@ -1,0 +1,21 @@
+/* Avatar component */
+.avatar {
+  // padding: 0 1rem; // Extra spacing inside of the element
+  margin-right: 2rem;
+  width: 10%; // Taking up 100% of space horizontally
+
+  &--big {
+  }
+
+  &--small {
+  }
+
+  div {
+    img {
+      border: 3px solid transparent; // Border around the profile image
+      background: linear-gradient(#7800c6, #7000ff) padding-box,
+        linear-gradient(#7800c6, #7000ff) border-box; // Color styles of the border
+      border-radius: 50%; // Round corners
+    }
+  }
+}

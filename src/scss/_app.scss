@@ -1,3 +1,29 @@
+/* Global media query variables
+--------------------------------*/
+// Very small devices (portrait phones, 320px and down)
+$breakpoint-mobile-xs: "(max-width: 20em)";
+
+// Small devices (portrait phones, 428px and down)
+$breakpoint-mobile-portrait: "(max-width: 26.75em)";
+
+// Small devices (landscape phones, 576px and down)
+$breakpoint-mobile-landscape: "(max-width: 36em)";
+
+// Medium devices (portrait tablets, 768px and down)
+$breakpoint-tablet-portrait: "(max-width: 48em)";
+
+// Medium devices (landscape tablets, 1024px and down)
+$breakpoint-tablet-landscape: "(max-width: 63.99em)";
+
+// Large devices (desktops, 992px and down)
+$breakpoint-large: "(max-width: 62em)";
+
+// Extra large devices (desktops, 1200px and down)
+$breakpoint-xlarge: "(max-width: 74.99em)";
+
+// Extra large devices (large desktops, 1400px and down)
+$breakpoint-xxlarge: "(max-width: 87.5em)";
+
 /* App component */
 main {
   background-color: rgb(59, 44, 77);
@@ -5,4 +31,31 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+// Class name used for the bigger profile image
+.aspect-ratio {
+  width: 100%; // Horizontally fills the entire area
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  position: relative; /* If you want text inside of it */
+  margin: 0 auto;
+
+  // container for the content inside
+  div {
+    position: absolute; // The element is removed from the normal document flow
+
+    // Setting the position of the div
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    //
+
+    img {
+      width: 100%; // Horizontally fills the entire area
+      height: 100%; // Vertically fills the entire area
+      object-fit: cover; // To maintain its aspect ratio while filling the element's entire content box
+      object-position: center center; // Positions the element in the center vertically and horizontally
+    }
+  }
 }
