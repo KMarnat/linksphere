@@ -4,7 +4,7 @@ export interface Post {
   id: number;
   title: string;
   content: string;
-  createdAt: string;
+  created_at: string;
   comments_count: number;
 }
 
@@ -30,4 +30,11 @@ export interface User {
   name: string;
   password: string;
   avatar: string;
+}
+
+export interface SinglePostProps {
+  content: string;
+  post_id: number;
+  user_id: number;
+  created_at: string;
 }

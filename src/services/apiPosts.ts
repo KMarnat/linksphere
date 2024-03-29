@@ -2,7 +2,10 @@ import supabase from "./supabase";
 import { Post } from "../types/types";
 
 export const getPosts = async (): Promise<Post[]> => {
-  const { data, error } = await supabase.from("posts").select("*");
+  const { data, error } = await supabase
+    .from("posts")
+    .select("*")
+    .order("created_at", { ascending: false });
 
   if (error) {
     console.error(error);

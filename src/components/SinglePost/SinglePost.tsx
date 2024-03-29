@@ -4,14 +4,10 @@ import Likes from "../Likes/Likes";
 import { getUsers } from "../../services/apiUsers";
 import Avatar from "../Avatar/Avatar";
 import unknownUser from "../../assets/unknown.jpg";
+import { SinglePostProps } from "../../types/types";
+import { formatDate } from "../../helpers/formatDate";
 
-interface SinglePostProps {
-  content: string;
-  post_id: number;
-  user_id: number;
-}
-
-const SinglePost: React.FC<SinglePostProps> = ({ content, post_id, user_id }) => {
+const SinglePost: React.FC<SinglePostProps> = ({ content, post_id, user_id, created_at }) => {
   const {
     isLoading,
     data: users,
@@ -27,13 +23,16 @@ const SinglePost: React.FC<SinglePostProps> = ({ content, post_id, user_id }) =>
   const userName = user ? user.name : "Unknown User";
   const userAvatar = user ? user.avatar : unknownUser;
 
-  console.log(users);
+  console.log(created_at);
 
   return (
     <article className="single-post">
       <div className="single-post__author">
         <Avatar image={userAvatar} />
-        {isLoading ? <span>LOADING</span> : <h4>{userName}</h4>}
+        <div>
+          {isLoading ? <span>LOADING</span> : <h4>{userName}</h4>}
+          <span>{formatDate(created_at)}</span>
+        </div>
       </div>
       <p className="single-post__content">{content}</p>
       <div className="single-post__stats">
