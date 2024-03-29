@@ -1,33 +1,56 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import { useState, FormEvent } from "react";
+import { useLogin } from "../../services/useLogin";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("kaspar@example.com");
+  const [password, setPassword] = useState("123456789");
   const navigate = useNavigate();
+  const { login, isLoading } = useLogin();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!email || !password) return;
-
-    console.log({ email: email, password: password });
+    login(
+      { email, password },
+      {
+        onSettled: () => {
+          setEmail("");
+          setPassword("");
+        },
+      }
+    );
   };
 
   return (
     <section className="login">
       <div className="login__panel">
         <Button onClick={() => navigate(-1)} label="&lt; back" type="back" />
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <div className="form__email">
             <label htmlFor="email">Email address</label>
-            <input type="text" id="email" onChange={(e) => setEmail(e.target.value)} />
+            <input
+              type="text"
+              id="email"
+              value={email}
+              autoComplete="username"
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={isLoading}
+            />
           </div>
           <div className="form__password">
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" onChange={(e) => setPassword(e.target.value)} />
+            <input
+              type="password"
+              id="password"
+              value={password}
+              autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={isLoading}
+            />
           </div>
-          <Button type="primary" onClick={() => handleSubmit} label="Log in" />
+          <Button type="primary" label={!isLoading ? "Log in" : "Loading..."} />
         </form>
       </div>
     </section>

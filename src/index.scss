@@ -2,6 +2,7 @@
 @import "./scss/reset";
 @import "./scss/typography";
 // components
+@import "./components/AppLayout/applayout";
 @import "./components/Header/header";
 @import "./components/Welcome/welcome";
 @import "./components/Button/button";
@@ -11,6 +12,7 @@
 @import "./components/SinglePost/singlepost";
 @import "./components/Feed/feed";
 @import "./components/Avatar/avatar";
+@import "./components/PageNotFound/pagenotfound";
 
 /* Color palette? */
 // #6B20C0

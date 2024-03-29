@@ -2,7 +2,9 @@
 .signup {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 100dvh;
+  background-color: rgb(59, 44, 77);
 
   &__panel {
     background-color: #fff;

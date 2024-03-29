@@ -24,15 +24,6 @@ $breakpoint-xlarge: "(max-width: 74.99em)";
 // Extra large devices (large desktops, 1400px and down)
 $breakpoint-xxlarge: "(max-width: 87.5em)";
 
-/* App component */
-main {
-  background-color: rgb(59, 44, 77);
-  // height: 100dvh
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 // Class name used for the bigger profile image
 .aspect-ratio {
   width: 100%; // Horizontally fills the entire area

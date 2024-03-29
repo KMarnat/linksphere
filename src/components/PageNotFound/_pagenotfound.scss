@@ -1,0 +1,17 @@
+/* PageNotFound component */
+.pnf {
+  background-color: rgb(59, 44, 77);
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  button {
+    color: #fff;
+  }
+
+  h1 {
+    color: #fff;
+  }
+}

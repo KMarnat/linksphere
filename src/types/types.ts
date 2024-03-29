@@ -38,3 +38,8 @@ export interface SinglePostProps {
   user_id: number;
   created_at: string;
 }
+
+export interface LoginCredentials {
+  email: string;
+  password: string;
+}
