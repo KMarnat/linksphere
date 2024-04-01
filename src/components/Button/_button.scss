@@ -34,4 +34,24 @@
       color: #6b20c0;
     }
   }
+
+  &-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.25rem;
+  }
+
+  &__icon {
+    height: 1.5rem;
+    transition: 0.2s ease-in-out;
+
+    &--like {
+      height: 1.75rem;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
 }

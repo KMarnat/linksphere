@@ -1,5 +1,7 @@
+import { ReactNode } from "react";
+
 interface ButtonProps {
-  label: string;
+  label: ReactNode;
   type: string;
   onClick?: () => void;
 }

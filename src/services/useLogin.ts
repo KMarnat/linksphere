@@ -5,14 +5,13 @@ import { LoginCredentials } from "../types/types";
 import toast from "react-hot-toast";
 
 export const useLogin = () => {
-  // const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
   const navigate = useNavigate();
 
   const { mutate: login, isPending: isLoading } = useMutation({
     mutationFn: ({ email, password }: LoginCredentials) => loginApi({ email, password }),
     onSuccess: (user) => {
-      // queryClient.setQueryData(["user"], user);
-      console.log(user);
+      queryClient.setQueryData(["user"], user);
       toast.success("Successfully logged in!");
       navigate("/feed");
     },

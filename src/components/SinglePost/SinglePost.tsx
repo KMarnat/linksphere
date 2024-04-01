@@ -23,8 +23,6 @@ const SinglePost: React.FC<SinglePostProps> = ({ content, post_id, user_id, crea
   const userName = user ? user.name : "Unknown User";
   const userAvatar = user ? user.avatar : unknownUser;
 
-  console.log(created_at);
-
   return (
     <article className="single-post">
       <div className="single-post__author">

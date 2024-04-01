@@ -1,5 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getComments } from "./../../services/apiComments";
+import Button from "../Button/Button";
+import CommentIconComponent from "../CommentIconComponent/CommentIconComponent";
 
 interface CommentsProps {
   post_id: number;
@@ -19,7 +21,18 @@ const Comments: React.FC<CommentsProps> = ({ post_id }) => {
 
   if (error) console.error(error);
 
-  return <>{isLoading ? <span>LOADING</span> : <span>Comments: {commentsCount}</span>}</>;
+  return (
+    <>
+      {isLoading ? (
+        <span>LOADING</span>
+      ) : (
+        <div className="comments">
+          <Button label={<CommentIconComponent color="#2E2B33" />} type="stats"></Button>
+          <span>{commentsCount}</span>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default Comments;
