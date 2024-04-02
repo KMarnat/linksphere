@@ -1,13 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import Comments from "../Comments/Comments";
-import Likes from "../Likes/Likes";
+import Comments from "../CommentsAmount/CommentsAmount";
+import Likes from "../LikesAmount/LikesAmount";
 import { getUsers } from "../../services/apiUsers";
 import Avatar from "../Avatar/Avatar";
 import unknownUser from "../../assets/unknown.jpg";
 import { SinglePostProps } from "../../types/types";
 import { formatDate } from "../../helpers/formatDate";
 
-const SinglePost: React.FC<SinglePostProps> = ({ content, post_id, user_id, created_at }) => {
+import CommentsList from "../CommentsList/CommentsList";
+import { useState } from "react";
+
+const SinglePost: React.FC<SinglePostProps> = ({ post, post_id, user_id, created_at }) => {
+  const [activeComments, setActiveComments] = useState(false);
+
   const {
     isLoading,
     data: users,
@@ -25,18 +30,25 @@ const SinglePost: React.FC<SinglePostProps> = ({ content, post_id, user_id, crea
 
   return (
     <article className="single-post">
-      <div className="single-post__author">
-        <Avatar image={userAvatar} />
-        <div>
-          {isLoading ? <span>LOADING</span> : <h4>{userName}</h4>}
-          <span>{formatDate(created_at)}</span>
+      <div className="single-post__content">
+        <div className="single-post__author">
+          <Avatar image={userAvatar} />
+          <div>
+            {isLoading ? <span>LOADING</span> : <h4>{userName}</h4>}
+            <span>{formatDate(created_at)}</span>
+          </div>
+        </div>
+        <p className="single-post__post">{post}</p>
+        <div className="single-post__stats">
+          <Likes post_id={post_id} />
+          <Comments
+            post_id={post_id}
+            activeComments={activeComments}
+            setActiveComments={setActiveComments}
+          />
         </div>
       </div>
-      <p className="single-post__content">{content}</p>
-      <div className="single-post__stats">
-        <Likes post_id={post_id} />
-        <Comments post_id={post_id} />
-      </div>
+      {activeComments && <CommentsList post_id={post_id} />}
     </article>
   );
 };

@@ -1,0 +1,60 @@
+.single-comment {
+  display: flex;
+  margin: 0 0.75rem 2rem;
+  align-self: flex-end;
+  position: relative;
+
+  &__connector {
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      // Positioning
+      content: "";
+      position: absolute;
+      top: -498rem;
+      left: 2rem;
+
+      // Layout
+      width: 5rem;
+      height: 500rem;
+      border-left: 2px solid #6b20c0;
+      border-bottom: 2px solid #6b20c0;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    color: #2e2b33;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    min-width: 40rem;
+    max-width: 40rem;
+    z-index: 5;
+
+    .lead {
+      margin: 0;
+    }
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+  }
+
+  .avatar {
+    height: 4rem;
+    width: 4rem;
+    position: relative;
+    z-index: 5;
+
+    .aspect-ratio {
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+}

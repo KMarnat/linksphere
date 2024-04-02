@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getLikes } from "./../../services/apiLikes";
+import { getLikes } from "../../services/apiLikes";
 import Button from "../Button/Button";
 import LikeIconComponent from "../LikeIconComponent/LikeIconComponent";
 
@@ -16,8 +16,6 @@ const Likes: React.FC<LikesProps> = ({ post_id }) => {
     queryKey: ["likes"],
     queryFn: getLikes,
   });
-
-  console.log(likes);
 
   const likesCount = likes?.filter((like) => like.post_id === post_id).length;
 

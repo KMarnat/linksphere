@@ -33,7 +33,7 @@ export interface User {
 }
 
 export interface SinglePostProps {
-  content: string;
+  post: string;
   post_id: number;
   user_id: number;
   created_at: string;

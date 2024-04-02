@@ -37,7 +37,7 @@ export const App = () => {
             <Route path="/profile" element={<Profile />} />
           </Route>
 
-          {/* <Route index element={<Navigate replace to="/" />} /> */}
+          <Route index element={<Navigate replace to="/welcome" />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignupForm />} />

@@ -1,4 +1,6 @@
 /* Feed component */
 .feed {
+  display: flex;
+  flex-direction: column;
   margin-top: 7rem;
 }
