@@ -13,7 +13,7 @@ export const useLogin = () => {
     onSuccess: (user) => {
       queryClient.setQueryData(["user"], user.user);
       toast.success("Successfully logged in!");
-      navigate("/feed");
+      navigate("/feed", { replace: true });
     },
     onError: (err) => {
       console.log("ERROR", err);

@@ -19,15 +19,13 @@ const Feed = () => {
   return (
     <section className="feed">
       {posts?.reverse().map((post) => (
-        <>
-          <SinglePost
-            key={post.id}
-            post={post.content}
-            post_id={post.id}
-            user_id={post.user_id}
-            created_at={post.created_at}
-          />
-        </>
+        <SinglePost
+          key={post.id}
+          post={post.content}
+          post_id={post.id}
+          user_id={post.user_id}
+          created_at={post.created_at}
+        />
       ))}
     </section>
   );

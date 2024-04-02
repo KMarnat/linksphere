@@ -4,8 +4,8 @@ import { useState, FormEvent } from "react";
 import { useLogin } from "../../services/useLogin";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("kaspar@example.com");
-  const [password, setPassword] = useState("123456789");
+  const [email, setEmail] = useState("kaspar2@example.com");
+  const [password, setPassword] = useState("verihardpassword9000");
   const navigate = useNavigate();
   const { login, isLoading } = useLogin();
 
@@ -50,7 +50,11 @@ const LoginForm = () => {
               disabled={isLoading}
             />
           </div>
-          <Button type="primary" label={!isLoading ? "Log in" : "Loading..."} />
+          <Button
+            isLoading={isLoading}
+            type="primary"
+            label={!isLoading ? "Log in" : "Loading..."}
+          />
         </form>
       </div>
     </section>

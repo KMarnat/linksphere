@@ -2,16 +2,17 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import { useSignup } from "../../services/useSignup";
+import { SignupCredentials } from "../../types/types";
 
 const SignupForm = () => {
   const navigate = useNavigate();
-
+  const { signup, isLoading } = useSignup();
   const { register, formState, getValues, handleSubmit, reset } = useForm();
   const { errors } = formState;
 
-  const onSubmit = (data: any) => {
-    console.log(data);
-    reset();
+  const onSubmit = ({ fullName, email, password }: SignupCredentials) => {
+    signup({ fullName, email, password }, { onSettled: () => reset() });
   };
 
   return (
@@ -24,6 +25,7 @@ const SignupForm = () => {
             <input
               type="text"
               id="fullName"
+              disabled={isLoading}
               {...register("fullName", { required: "This field is required." })}
             />
 
@@ -34,6 +36,7 @@ const SignupForm = () => {
             <input
               type="text"
               id="email"
+              disabled={isLoading}
               {...register("email", {
                 required: "This field is required.",
                 pattern: {
@@ -50,6 +53,7 @@ const SignupForm = () => {
             <input
               type="password"
               id="password"
+              disabled={isLoading}
               {...register("password", {
                 required: "This field is required.",
                 minLength: {
@@ -65,6 +69,7 @@ const SignupForm = () => {
             <input
               type="password"
               id="passwordConfirm"
+              disabled={isLoading}
               {...register("passwordConfirm", {
                 required: "This field is required.",
                 validate: (value) => value === getValues().password || "Passwords need to match.",
@@ -74,7 +79,7 @@ const SignupForm = () => {
           </div>
           <div className="form__buttons">
             <Button type="secondary" onClick={() => reset()} label="Cancel" />
-            <Button type="primary" label="Sign up" />
+            <Button isLoading={isLoading} type="primary" label="Sign up" />
           </div>
         </form>
       </div>
