@@ -1,6 +1,7 @@
 import SinglePost from "../SinglePost/SinglePost";
 import { getPosts } from "../../services/apiPosts";
 import { useQuery } from "@tanstack/react-query";
+import AddPost from "../AddPost/AddPost";
 
 const Feed = () => {
   const {
@@ -18,6 +19,7 @@ const Feed = () => {
 
   return (
     <section className="feed">
+      <AddPost />
       {posts?.reverse().map((post) => (
         <SinglePost
           key={post.id}
