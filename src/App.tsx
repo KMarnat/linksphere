@@ -3,11 +3,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
 import AppLayout from "./components/AppLayout/AppLayout";
-import LoginForm from "./components/LoginForm/LoginForm";
-import SignupForm from "./components/Signup/SignupForm";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import SignupPage from "./pages/SignupPage/SignupPage";
 import Feed from "./components/Feed/Feed";
 import Profile from "./components/Profile/Profile";
-import Welcome from "./components/Welcome/Welcome";
+import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 
@@ -38,9 +38,9 @@ export const App = () => {
           </Route>
 
           <Route index element={<Navigate replace to="/welcome" />} />
-          <Route path="/welcome" element={<Welcome />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/signup" element={<SignupForm />} />
+          <Route path="/welcome" element={<WelcomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

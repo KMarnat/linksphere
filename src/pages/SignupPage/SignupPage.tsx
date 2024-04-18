@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../Button/Button";
 import { useForm } from "react-hook-form";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { useSignup } from "../../services/useSignup";
 import { SignupCredentials } from "../../types/types";
+import Button from "./../../components/Button/Button";
 
 const SignupForm = () => {
   const navigate = useNavigate();

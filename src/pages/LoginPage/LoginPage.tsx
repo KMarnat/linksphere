@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../Button/Button";
 import { useState, FormEvent } from "react";
 import { useLogin } from "../../services/useLogin";
+import Button from "./../../components/Button/Button";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("kaspar2@example.com");
