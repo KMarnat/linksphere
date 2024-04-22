@@ -3,9 +3,9 @@ import { useState, FormEvent } from "react";
 import { useLogin } from "../../services/useLogin";
 import Button from "./../../components/Button/Button";
 
-const LoginForm = () => {
-  const [email, setEmail] = useState("kaspar2@example.com");
-  const [password, setPassword] = useState("verihardpassword9000");
+const LoginPage = () => {
+  const [email, setEmail] = useState("kasparmarnat@gmail.com");
+  const [password, setPassword] = useState("verysafepassword123");
   const navigate = useNavigate();
   const { login, isLoading } = useLogin();
 
@@ -61,4 +61,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default LoginPage;

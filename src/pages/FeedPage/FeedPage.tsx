@@ -1,9 +1,9 @@
-import SinglePost from "../SinglePost/SinglePost";
 import { getPosts } from "../../services/apiPosts";
 import { useQuery } from "@tanstack/react-query";
-import AddPost from "../AddPost/AddPost";
+import AddPost from "../../components/AddPost/AddPost";
+import SinglePost from "../../components/SinglePost/SinglePost";
 
-const Feed = () => {
+const FeedPage = () => {
   const {
     isLoading,
     data: posts,
@@ -33,4 +33,4 @@ const Feed = () => {
   );
 };
 
-export default Feed;
+export default FeedPage;

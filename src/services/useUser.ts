@@ -11,5 +11,5 @@ export const useUser = () => {
     queryFn: getCurrentUser,
   });
 
-  return { isLoading, isAuthenticated: user?.role === "authenticated", fetchStatus };
+  return { isLoading, isAuthenticated: user?.role === "authenticated", fetchStatus, user };
 };

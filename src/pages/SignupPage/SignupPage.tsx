@@ -5,7 +5,7 @@ import { useSignup } from "../../services/useSignup";
 import { SignupCredentials } from "../../types/types";
 import Button from "./../../components/Button/Button";
 
-const SignupForm = () => {
+const SignupPage = () => {
   const navigate = useNavigate();
   const { signup, isLoading } = useSignup();
   const { register, formState, getValues, handleSubmit, reset } = useForm();
@@ -87,4 +87,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default SignupPage;

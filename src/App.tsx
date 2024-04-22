@@ -5,8 +5,8 @@ import { Toaster } from "react-hot-toast";
 import AppLayout from "./components/AppLayout/AppLayout";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
-import Feed from "./components/Feed/Feed";
-import Profile from "./components/Profile/Profile";
+import FeedPage from "./pages/FeedPage/FeedPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
@@ -33,8 +33,8 @@ export const App = () => {
             }
           >
             <Route index element={<Navigate replace to="/feed" />} />
-            <Route path="/feed" element={<Feed />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/feed" element={<FeedPage />} />
+            <Route path="/profile/:name" element={<ProfilePage />} />
           </Route>
 
           <Route index element={<Navigate replace to="/welcome" />} />

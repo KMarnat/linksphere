@@ -18,9 +18,11 @@ const SinglePost: React.FC<SinglePostProps> = ({ post, post_id, user_id, created
     data: users,
     error,
   } = useQuery({
-    queryKey: ["users"],
+    queryKey: ["profile"],
     queryFn: getUsers,
   });
+
+  console.log(users);
 
   if (error) console.error(error);
 

@@ -17,9 +17,11 @@ const SingleComment: React.FC<SingleCommentProps> = ({ comment }) => {
     data: users,
     error,
   } = useQuery({
-    queryKey: ["users"],
+    queryKey: ["profile"],
     queryFn: getUsers,
   });
+
+  console.log(users);
 
   if (error) console.error(error);
 

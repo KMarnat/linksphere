@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Button from "./../../components/Button/Button";
 
-const Welcome = () => {
+const WelcomePage = () => {
   const navigate = useNavigate();
 
   return (
@@ -18,4 +18,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default WelcomePage;

@@ -1,33 +1,24 @@
-import { useEffect, useState } from "react";
 import Logo from "../../assets/linksphere-logo.svg";
-import { getCurrentUser } from "../../services/apiAuth";
 import Avatar from "../Avatar/Avatar";
 import Unknown from "../../assets/unknown.jpg";
-
 import LogOut from "../Logout/LogOut";
+import { Link } from "react-router-dom";
+import { useUser } from "../../services/useUser";
 
 const Header = () => {
-  const [curUser, setCurUser] = useState(null);
+  const { user } = useUser();
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const user = await getCurrentUser();
-        console.log(user);
-        setCurUser(user);
-      } catch (error) {
-        console.error("Error fetching user:", error);
-      }
-    };
-
-    fetchUser();
-  }, []);
+  console.log(user);
 
   return (
     <header className="header">
-      <img className="header__logo" src={Logo} alt="LinkSphere logo" />
+      <Link to={"/feed"}>
+        <img className="header__logo" src={Logo} alt="LinkSphere logo" />
+      </Link>
       <div className="header__user">
-        <Avatar image={Unknown} />
+        <Link to={`/profile/${user?.user_metadata.fullName.toLowerCase()}`}>
+          <Avatar image={Unknown} />
+        </Link>
         <LogOut />
       </div>
     </header>
