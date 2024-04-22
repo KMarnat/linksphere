@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getLikes } from "../../services/apiLikes";
 import Button from "../Button/Button";
-import LikeIconComponent from "../LikeIconComponent/LikeIconComponent";
+import LikeIcon from "../../assets/like-icon.svg?react";
 
 interface LikesProps {
   post_id: number;
@@ -27,7 +27,9 @@ const Likes: React.FC<LikesProps> = ({ post_id }) => {
         <span>LOADING</span>
       ) : (
         <div className="likes">
-          <Button label={<LikeIconComponent color="#2E2B33" />} type={"stats"}></Button>
+          <Button type={"stats"}>
+            <LikeIcon className="btn__icon btn__icon--like" />
+          </Button>
           <span>{likesCount}</span>
         </div>
       )}

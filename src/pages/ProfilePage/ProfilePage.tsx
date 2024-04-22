@@ -1,3 +1,4 @@
+import ProfileBanner from "../../components/ProfileHero/ProfileHero";
 import { useUser } from "../../services/useUser";
 
 const ProfilePage = () => {
@@ -7,9 +8,7 @@ const ProfilePage = () => {
 
   return (
     <section className="profilepage">
-      <h1>{user?.user_metadata.fullName}</h1>
-      <br />
-      <h1>{user?.user_metadata.email}</h1>
+      <ProfileBanner />
     </section>
   );
 };

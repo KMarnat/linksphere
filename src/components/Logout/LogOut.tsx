@@ -1,17 +1,14 @@
 import { useLogout } from "../../services/useLogout";
 import Button from "../Button/Button";
-import LogoutIcon from "../LogoutIcon/LogoutIcon";
+import LogoutIcon from "../../assets/logout-icon.svg?react";
 
 const LogOut = () => {
   const { logout, isLoading } = useLogout();
 
   return (
-    <Button
-      label={<LogoutIcon color="#FFF" />}
-      type="stats"
-      onClick={logout}
-      isLoading={isLoading}
-    />
+    <Button type="stats" onClick={logout} isLoading={isLoading}>
+      <LogoutIcon className="logout-icon" />
+    </Button>
   );
 };
 

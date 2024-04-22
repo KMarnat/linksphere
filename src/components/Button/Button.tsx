@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
 interface ButtonProps {
-  label: ReactNode;
+  children: ReactNode;
   type: string;
   isLoading?: boolean;
   onClick?: () => void;
@@ -15,10 +15,10 @@ const override = {
   width: "1.5rem",
 };
 
-const Button: React.FC<ButtonProps> = ({ onClick, label, type, isLoading }) => {
+const Button: React.FC<ButtonProps> = ({ onClick, children, type, isLoading }) => {
   return (
     <button disabled={isLoading} onClick={onClick} className={`btn btn-${type}`}>
-      {isLoading ? <ClipLoader cssOverride={override} /> : label}
+      {isLoading ? <ClipLoader cssOverride={override} /> : children}
     </button>
   );
 };

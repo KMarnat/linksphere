@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { getComments } from "../../services/apiComments";
 import Button from "../Button/Button";
-import CommentIconComponent from "../CommentIconComponent/CommentIconComponent";
+
+import CommentIcon from "../../assets/comment-icon.svg?react";
 
 interface CommentsProps {
   post_id: number;
@@ -34,11 +35,11 @@ const Comments: React.FC<CommentsProps> = ({ post_id, activeComments, setActiveC
         <span>LOADING</span>
       ) : (
         <div className="comments">
-          <Button
-            label={<CommentIconComponent color={activeComments ? "#6b20c0" : "#2E2B33"} />}
-            type="stats"
-            onClick={handleClick}
-          ></Button>
+          <Button type="stats" onClick={handleClick}>
+            {/* Add styles for when comments are visible */}
+            {/* #6b20c0 #2E2B33 */}
+            <CommentIcon className={`btn__icon ${activeComments ? "btn__icon--active" : ""}`} />
+          </Button>
           <span>{commentsCount}</span>
         </div>
       )}

@@ -1,15 +1,16 @@
 import Avatar from "../Avatar/Avatar";
 import Unknown from "../../assets/unknown.jpg";
 import Button from "../Button/Button";
-
-import SendIcon from "../SendIcon/SendIcon";
+import SendIcon from "../../assets/send.svg?react";
 
 const AddPost = () => {
   return (
     <div className="add-post">
       <Avatar image={Unknown} />
       <textarea />
-      <Button label={<SendIcon color="#6D00EB" />} type={"stats"} />
+      <Button type={"stats"}>
+        <SendIcon className="btn__icon" />
+      </Button>
     </div>
   );
 };

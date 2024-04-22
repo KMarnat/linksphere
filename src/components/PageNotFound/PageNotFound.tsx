@@ -7,7 +7,9 @@ const PageNotFound = () => {
   return (
     <section className="pnf">
       <h1>Page not found</h1>
-      <Button onClick={() => navigate(-1)} label="&lt; back" type="back" />
+      <Button onClick={() => navigate(-1)} type="back">
+        &lt; back
+      </Button>
     </section>
   );
 };
