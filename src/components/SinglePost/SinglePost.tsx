@@ -35,7 +35,7 @@ const SinglePost: React.FC<SinglePostProps> = ({ post, post_id, user_id, created
       <div className="single-post__content">
         <div className="single-post__author">
           <Avatar image={userAvatar} />
-          <div>
+          <div className="single-post__author-info">
             {isLoading ? <span>LOADING</span> : <h4>{userName}</h4>}
             <span>{formatDate(created_at)}</span>
           </div>

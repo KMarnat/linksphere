@@ -14,8 +14,7 @@
     flex-direction: column;
     position: relative;
     z-index: 15;
-    background-color: #fff;
-    color: #2e2b33;
+    background-color: var(--bg-container);
     padding: 1rem 2rem;
     border-radius: 0.5rem;
     margin: 0 0.75rem 2rem;
@@ -27,10 +26,16 @@
     h4 {
       margin: 0;
     }
+
+    &-info {
+      span {
+        color: var(--clr-light-gray);
+      }
+    }
   }
 
   &__stats {
-    border-top: 1px solid #2e2b33;
+    border-top: 1px solid var(--main-purple);
     padding-top: 1rem;
     display: flex;
     gap: 2rem;

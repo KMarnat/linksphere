@@ -1,8 +1,9 @@
 import Button from "../Button/Button";
 import CameraIcon from "../../assets/camera-icon.svg";
+import Unknown from "../../assets/unknown.jpg";
 
 interface AvatarProps {
-  image: string;
+  image?: string;
   editProfileImage?: boolean;
 }
 
@@ -11,7 +12,7 @@ const Avatar: React.FC<AvatarProps> = ({ image, editProfileImage }) => {
     <div className="avatar">
       <div className="aspect-ratio">
         <div>
-          <img src={image} alt="Profile avatar" />
+          <img src={image ? image : Unknown} alt="Profile avatar" />
         </div>
       </div>
       {editProfileImage && (

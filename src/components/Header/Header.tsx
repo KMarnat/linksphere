@@ -1,6 +1,5 @@
 import Logo from "../../assets/linksphere-logo.svg";
 import Avatar from "../Avatar/Avatar";
-import Unknown from "../../assets/unknown.jpg";
 import LogOut from "../Logout/LogOut";
 import { Link } from "react-router-dom";
 import { useUser } from "../../services/useUser";
@@ -17,7 +16,7 @@ const Header = () => {
       </Link>
       <div className="header__user">
         <Link to={`/profile/${user?.user_metadata.fullName.toLowerCase()}`}>
-          <Avatar image={Unknown} />
+          <Avatar />
         </Link>
         <LogOut />
       </div>

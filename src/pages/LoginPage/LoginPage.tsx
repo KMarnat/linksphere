@@ -26,7 +26,9 @@ const LoginPage = () => {
   return (
     <section className="login">
       <div className="login__panel">
-        <Button onClick={() => navigate(-1)} label="&lt; back" type="back" />
+        <Button onClick={() => navigate(-1)} type="back">
+          &lt; back
+        </Button>
         <form className="form" onSubmit={handleSubmit}>
           <div className="form__email">
             <label htmlFor="email">Email address</label>
@@ -50,11 +52,9 @@ const LoginPage = () => {
               disabled={isLoading}
             />
           </div>
-          <Button
-            isLoading={isLoading}
-            type="primary"
-            label={!isLoading ? "Log in" : "Loading..."}
-          />
+          <Button isLoading={isLoading} type="primary">
+            Log in
+          </Button>
         </form>
       </div>
     </section>

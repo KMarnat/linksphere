@@ -1,6 +1,6 @@
 /* AppLayout component */
 main {
-  background-color: rgb(59, 44, 77);
+  background-color: var(--bg-dark);
   // height: 100dvh
   display: flex;
   justify-content: center;

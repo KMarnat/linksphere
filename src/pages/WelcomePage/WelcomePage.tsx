@@ -10,8 +10,12 @@ const WelcomePage = () => {
       <div className="welcome__panel">
         <p className="lead">Please log in or create an account</p>
         <div className="welcome__buttons">
-          <Button onClick={() => navigate("/login")} label={"Log in"} type="primary" />
-          <Button onClick={() => navigate("/signup")} label={"Sign up"} type="primary" />
+          <Button onClick={() => navigate("/login")} type="primary">
+            Log in
+          </Button>
+          <Button onClick={() => navigate("/signup")} type="primary">
+            Sign up
+          </Button>
         </div>
       </div>
     </section>

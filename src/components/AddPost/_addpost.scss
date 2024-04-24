@@ -1,6 +1,6 @@
 .add-post {
   display: flex;
-  background-color: #fff;
+  background-color: var(--bg-container);
   color: #2e2b33;
   border-radius: 0.5rem;
   padding: 1rem 2rem;
@@ -8,12 +8,20 @@
   max-width: 50rem;
   margin: 0 0.75rem 2rem;
 
+  .btn {
+    height: fit-content;
+    align-self: center;
+    margin-left: 1rem;
+  }
+
   textarea {
-    border: 1px solid #2e2b33;
+    border: none;
     border-radius: 0.5rem;
+    background-color: var(--clr-dim-gray);
+    color: var(--main-text);
+    padding: 0.5rem;
     width: 100%;
     resize: none;
-    padding: 0;
   }
 
   .send {

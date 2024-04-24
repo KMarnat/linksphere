@@ -4,9 +4,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 500;
 
   &-primary {
-    border: 1px solid #fff;
+    border: 1px solid transparent;
     color: #fff;
     background-color: #6b20c0;
     padding: 0.5rem 1rem;
@@ -61,7 +62,7 @@
 
     & g {
       & g {
-        fill: #2e2b33;
+        fill: var(--clr-dim-gray);
       }
     }
 

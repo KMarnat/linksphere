@@ -18,7 +18,9 @@ const SignupPage = () => {
   return (
     <section className="signup">
       <div className="signup__panel">
-        <Button onClick={() => navigate(-1)} label="&lt; back" type="back" />
+        <Button onClick={() => navigate(-1)} type="back">
+          &lt; back
+        </Button>
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <div className="form__name">
             <label htmlFor="fullName">Full name</label>
@@ -78,8 +80,12 @@ const SignupPage = () => {
             <ErrorMessage label={errors?.passwordConfirm?.message} />
           </div>
           <div className="form__buttons">
-            <Button type="secondary" onClick={() => reset()} label="Cancel" />
-            <Button isLoading={isLoading} type="primary" label="Sign up" />
+            <Button type="secondary" onClick={() => reset()}>
+              Cancel
+            </Button>
+            <Button isLoading={isLoading} type="primary">
+              Sign up
+            </Button>
           </div>
         </form>
       </div>
