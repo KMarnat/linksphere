@@ -3,14 +3,16 @@ import Vibrant from "node-vibrant";
 import Avatar from "../Avatar/Avatar";
 import Button from "../Button/Button";
 import EditIcon from "../../assets/edit.svg?react";
-import TestCoverImage from "../../assets/testProfileCover.png";
+// import TestCoverImage from "../../assets/testProfileCover.png";
 import TestCoverImage2 from "../../assets/testProfileCover2.png";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProfileBanner = () => {
   const { user } = useUser();
+  const navigate = useNavigate();
 
-  const [bannerColor, setBannerColor] = useState("transparent"); // Default transparent color
+  const [bannerColor, setBannerColor] = useState("transparent");
 
   useEffect(() => {
     const extractColors = async () => {
@@ -18,7 +20,6 @@ const ProfileBanner = () => {
         const palette = await Vibrant.from(TestCoverImage2).getPalette();
         const vibrantColor = palette.Vibrant ? palette.Vibrant.hex : null;
         setBannerColor(vibrantColor || "transparent");
-        console.log(vibrantColor);
       } catch (error) {
         console.error("Error extracting palette:", error);
       }
@@ -27,7 +28,7 @@ const ProfileBanner = () => {
     extractColors();
   }, []);
 
-  console.log(bannerColor);
+  console.log(user);
 
   const profileGradient = {
     background: `linear-gradient(to bottom, ${bannerColor}, var(--bg-container) 50%)`,
@@ -42,12 +43,15 @@ const ProfileBanner = () => {
           </div>
         </div>
         <div className="user-details">
-          <Avatar />
+          <Avatar editProfileImage={true} />
           <div className="user-details__content">
             <h3>{user?.user_metadata.fullName}</h3>
             <h4 className="user-details__friends">??? friends</h4>
           </div>
-          <Button type={"primary"}>
+          <Button
+            type={"primary"}
+            onClick={() => navigate(`/profile/${user?.user_metadata.fullName.toLowerCase()}/edit`)}
+          >
             <EditIcon />
             Edit profile
           </Button>

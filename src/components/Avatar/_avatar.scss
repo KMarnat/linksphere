@@ -3,6 +3,11 @@
   // padding: 0 1rem; // Extra spacing inside of the element
   margin-right: 2rem;
   width: 10%; // Taking up 100% of space horizontally
+  position: relative;
+
+  &__edit {
+    position: absolute;
+  }
 
   &--big {
   }
@@ -16,6 +21,39 @@
       background: linear-gradient(#7800c6, #7000ff) padding-box,
         linear-gradient(#7800c6, #7000ff) border-box; // Color styles of the border
       border-radius: 50%; // Round corners
+    }
+  }
+
+  button {
+    position: absolute;
+    background-color: var(--main-purple);
+    border-radius: 50%;
+    padding: 0.5rem;
+    inset: auto 4% 4% auto;
+    transition: 0.3s ease-in-out;
+    border: 2px solid transparent;
+
+    svg {
+      circle,
+      path {
+        transition: 0.3s ease-in-out;
+      }
+    }
+
+    &:hover {
+      background-color: var(--main-text);
+      border-color: var(--main-purple);
+
+      svg {
+        circle,
+        path {
+          stroke: var(--main-purple);
+        }
+      }
+    }
+
+    svg path {
+      fill: transparent !important;
     }
   }
 }

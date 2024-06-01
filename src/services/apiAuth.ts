@@ -10,6 +10,7 @@ export const signup = async ({ fullName, email, password }: SignupCredentials) =
       data: {
         fullName,
         avatar: "",
+        coverImage: "",
       },
     },
   });

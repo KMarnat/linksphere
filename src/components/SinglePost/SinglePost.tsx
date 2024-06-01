@@ -22,8 +22,6 @@ const SinglePost: React.FC<SinglePostProps> = ({ post, post_id, user_id, created
     queryFn: getUsers,
   });
 
-  console.log(users);
-
   if (error) console.error(error);
 
   const user = users?.find((user) => user.id === user_id);

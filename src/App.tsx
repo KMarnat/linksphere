@@ -10,6 +10,7 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
+import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,6 +36,7 @@ export const App = () => {
             <Route index element={<Navigate replace to="/feed" />} />
             <Route path="/feed" element={<FeedPage />} />
             <Route path="/profile/:name" element={<ProfilePage />} />
+            <Route path="/profile/:name/edit" element={<EditProfilePage />} />
           </Route>
 
           <Route index element={<Navigate replace to="/welcome" />} />

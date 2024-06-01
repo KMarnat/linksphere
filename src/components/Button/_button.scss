@@ -8,17 +8,17 @@
 
   &-primary {
     border: 1px solid transparent;
-    color: #fff;
-    background-color: #6b20c0;
+    color: var(--main-text);
+    background-color: var(--main-purple);
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     min-width: 5.5rem;
     min-height: 3rem;
 
     &:hover {
-      background-color: #fff;
-      color: #6b20c0;
-      border: 1px solid #6b20c0;
+      background-color: var(--main-text);
+      color: var(--main-purple);
+      border: 1px solid var(--main-purple);
     }
   }
 

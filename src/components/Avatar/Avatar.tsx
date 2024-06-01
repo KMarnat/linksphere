@@ -1,26 +1,26 @@
 import Button from "../Button/Button";
-import CameraIcon from "../../assets/camera-icon.svg";
+import CameraIcon from "../../assets/camera-icon.svg?react";
 import Unknown from "../../assets/unknown.jpg";
+import { useState } from "react";
 
 interface AvatarProps {
-  image?: string;
   editProfileImage?: boolean;
 }
 
-const Avatar: React.FC<AvatarProps> = ({ image, editProfileImage }) => {
+const Avatar: React.FC<AvatarProps> = ({ editProfileImage }) => {
+  const [avatar, setAvatar] = useState(null);
+
   return (
     <div className="avatar">
       <div className="aspect-ratio">
         <div>
-          <img src={image ? image : Unknown} alt="Profile avatar" />
+          <img src={avatar ? avatar : Unknown} alt="Profile avatar" />
         </div>
       </div>
       {editProfileImage && (
-        <div>
-          <Button type={"stats"}>
-            <CameraIcon />
-          </Button>
-        </div>
+        <Button type={"stats"}>
+          <CameraIcon />
+        </Button>
       )}
     </div>
   );
