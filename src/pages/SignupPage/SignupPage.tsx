@@ -23,19 +23,25 @@ const SignupPage = () => {
         </Button>
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <div className="form__name">
-            <label htmlFor="fullName">Full name</label>
             <input
+              autoComplete="off"
+              required={true}
+              className="input"
               type="text"
               id="fullName"
               disabled={isLoading}
               {...register("fullName", { required: "This field is required." })}
             />
-
+            <label className="user-label" htmlFor="fullName">
+              Full Name
+            </label>
             <ErrorMessage label={errors?.fullName?.message} />
           </div>
           <div className="form__email">
-            <label htmlFor="email">Email address</label>
             <input
+              autoComplete="off"
+              required={true}
+              className="input"
               type="text"
               id="email"
               disabled={isLoading}
@@ -47,12 +53,17 @@ const SignupPage = () => {
                 },
               })}
             />
+            <label className="user-label" htmlFor="email">
+              Email address
+            </label>
             <ErrorMessage label={errors?.email?.message} />
           </div>
 
           <div className="form__password">
-            <label htmlFor="password">Password (min 8 characters)</label>
             <input
+              autoComplete="off"
+              required={true}
+              className="input"
               type="password"
               id="password"
               disabled={isLoading}
@@ -64,11 +75,17 @@ const SignupPage = () => {
                 },
               })}
             />
+            <label className="user-label" htmlFor="password">
+              Password
+            </label>
             <ErrorMessage label={errors?.password?.message} />
           </div>
+
           <div className="form__password">
-            <label htmlFor="passwordConfirm">Repeat password</label>
             <input
+              autoComplete="off"
+              required={true}
+              className="input"
               type="password"
               id="passwordConfirm"
               disabled={isLoading}
@@ -77,6 +94,9 @@ const SignupPage = () => {
                 validate: (value) => value === getValues().password || "Passwords need to match.",
               })}
             />
+            <label className="user-label" htmlFor="passwordConfirm">
+              Confirm password
+            </label>
             <ErrorMessage label={errors?.passwordConfirm?.message} />
           </div>
           <div className="form__buttons">

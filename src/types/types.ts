@@ -24,11 +24,9 @@ export interface Comment {
 }
 
 export interface User {
-  id: number;
-  created_at: string;
-  email: string;
   name: string;
-  password: string;
+  id: number;
+  email: string;
   avatar: string;
 }
 

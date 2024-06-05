@@ -1,5 +1,4 @@
 import Avatar from "../Avatar/Avatar";
-import unknownUser from "../../assets/unknown.jpg";
 import { Comment } from "../../types/types";
 import { formatDate } from "./../../helpers/formatDate";
 import { useQuery } from "@tanstack/react-query";
@@ -33,7 +32,7 @@ const SingleComment: React.FC<SingleCommentProps> = ({ comment }) => {
   return (
     <li className="single-comment">
       <div className="single-comment__connector"></div>
-      <Avatar image={unknownUser} />
+      <Avatar />
       <div className="single-comment__info">
         <div className="single-comment__author">
           {isLoading ? (

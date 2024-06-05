@@ -66,6 +66,7 @@ $breakpoint-xxlarge: "(max-width: 87.5em)";
 .adaptive {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
 
   &-photo {
     // height: 150px /*This is what determines the height of your image*/

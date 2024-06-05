@@ -7,8 +7,6 @@ import { useUser } from "../../services/useUser";
 const Header = () => {
   const { user } = useUser();
 
-  console.log(user);
-
   return (
     <header className="header">
       <Link to={"/feed"}>

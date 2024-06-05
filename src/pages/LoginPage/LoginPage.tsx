@@ -31,26 +31,34 @@ const LoginPage = () => {
         </Button>
         <form className="form" onSubmit={handleSubmit}>
           <div className="form__email">
-            <label htmlFor="email">Email address</label>
             <input
+              autoComplete="off"
+              required={true}
+              className="input"
               type="text"
               id="email"
               value={email}
-              autoComplete="username"
-              onChange={(e) => setEmail(e.target.value)}
               disabled={isLoading}
+              onChange={(e) => setEmail(e.target.value)}
             />
+            <label className="user-label" htmlFor="email">
+              Email address
+            </label>
           </div>
           <div className="form__password">
-            <label htmlFor="password">Password</label>
             <input
+              autoComplete="off"
+              required={true}
+              className="input"
               type="password"
               id="password"
               value={password}
-              autoComplete="current-password"
-              onChange={(e) => setPassword(e.target.value)}
               disabled={isLoading}
+              onChange={(e) => setPassword(e.target.value)}
             />
+            <label className="user-label" htmlFor="email">
+              Password
+            </label>
           </div>
           <Button isLoading={isLoading} type="primary">
             Log in
