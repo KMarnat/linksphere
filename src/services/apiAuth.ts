@@ -1,4 +1,4 @@
-import { LoginCredentials } from "../types/types";
+import { AvatarUpdate, CoverUpdate, LoginCredentials } from "../types/types";
 import supabase from "./supabase";
 import { SignupCredentials } from "./../types/types";
 import { supabaseUrl } from "./supabase";
@@ -47,39 +47,6 @@ export const logout = async () => {
   if (error) throw new Error(error.message);
 };
 
-// export const updateCurrentUser = async ({ password, fullName, avatar }) => {
-//   // 1. Update password OR fullName
-//   let updateData;
-//   if (password) updateData = { password };
-//   if (fullName) updateData = { data: { fullName } };
-
-//   const { data, error } = await supabase.auth.updateUser(updateData);
-
-//   if (error) throw new Error(error.message);
-//   if (!avatar) return data;
-
-//   // 2. Upload the avatar image
-//   const fileName = `avatar=${data.user.id}-${Math.random()}`;
-
-//   const { error: storageError } = await supabase.storage.from("avatars").upload(fileName, avatar);
-//   if (storageError) throw new Error(storageError.message);
-
-//   // 3. Update avatar in the user
-//   const { data: updatedUser, error: error2 } = supabase.auth.updateUser({
-//     data: {
-//       avatar: `${supabaseUrl}/storage/v1/object/public/avatars/${fileName}`,
-//     },
-//   });
-
-//   if (error2) throw new Error(error2.message);
-
-//   return updatedUser;
-// };
-
-type AvatarUpdate = {
-  avatar: File;
-};
-
 export const updateCurrentUserAvatar = async ({ avatar }: AvatarUpdate) => {
   // 1. Get the current user session
   const { data: session, error: sessionError } = await supabase.auth.getSession();
@@ -112,10 +79,6 @@ export const updateCurrentUserAvatar = async ({ avatar }: AvatarUpdate) => {
   if (profileError) throw new Error(profileError.message);
 
   return updatedUser;
-};
-
-type CoverUpdate = {
-  cover: File;
 };
 
 export const updateCurrentUserCover = async ({ cover }: CoverUpdate) => {

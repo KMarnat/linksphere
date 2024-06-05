@@ -13,6 +13,7 @@ const ProfileBanner = () => {
   const { user } = useUser();
   const navigate = useNavigate();
   const userCover = user?.user_metadata.coverImage;
+  const userAvatar = user?.user_metadata.avatar;
 
   useEffect(() => {
     const extractColors = async () => {
@@ -50,7 +51,7 @@ const ProfileBanner = () => {
           <ImageUploadInput fileToUpload="cover" />
         </div>
         <div className="user-details">
-          <Avatar editProfileImage={true} />
+          <Avatar editProfileImage={true} avatar={userAvatar} />
           <div className="user-details__content">
             <h3>{user?.user_metadata.fullName}</h3>
             <h4 className="user-details__friends">??? friends</h4>

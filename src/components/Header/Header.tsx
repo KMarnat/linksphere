@@ -6,6 +6,7 @@ import { useUser } from "../../services/useUser";
 
 const Header = () => {
   const { user } = useUser();
+  const userAvatar = user?.user_metadata.avatar;
 
   return (
     <header className="header">
@@ -14,7 +15,7 @@ const Header = () => {
       </Link>
       <div className="header__user">
         <Link to={`/profile/${user?.user_metadata.fullName.toLowerCase()}`}>
-          <Avatar />
+          <Avatar avatar={userAvatar} />
         </Link>
         <LogOut />
       </div>

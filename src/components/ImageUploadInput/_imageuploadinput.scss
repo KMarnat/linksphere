@@ -8,6 +8,7 @@
   inset: auto 4% 4% auto;
   transition: 0.3s ease-in-out;
   border: 2px solid transparent;
+  cursor: pointer;
 
   input[type="file"] {
     display: none; // Hiding the upload file button

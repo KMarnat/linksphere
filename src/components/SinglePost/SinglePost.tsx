@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import Comments from "../CommentsAmount/CommentsAmount";
 import Likes from "../LikesAmount/LikesAmount";
-import { getUsers } from "../../services/apiUsers";
+import { getUserById } from "../../services/apiUserById";
 import Avatar from "../Avatar/Avatar";
-import { SinglePostProps } from "../../types/types";
+import { SinglePostProps, User } from "../../types/types";
 import { formatDate } from "../../helpers/formatDate";
-
 import CommentsList from "../CommentsList/CommentsList";
 import { useState } from "react";
 
@@ -14,25 +13,24 @@ const SinglePost: React.FC<SinglePostProps> = ({ post, post_id, user_id, created
 
   const {
     isLoading,
-    data: users,
+    data: author,
     error,
-  } = useQuery({
-    queryKey: ["profile"],
-    queryFn: getUsers,
+  } = useQuery<User | null, Error>({
+    queryKey: ["profile", user_id],
+    queryFn: () => getUserById(user_id),
   });
 
   if (error) console.error(error);
 
-  const user = users?.find((user) => user.id === user_id);
-  const userName = user ? user.name : "Unknown User";
+  console.log(author);
 
   return (
     <article className="single-post">
       <div className="single-post__content">
         <div className="single-post__author">
-          <Avatar />
+          <Avatar avatar={author?.avatar} />
           <div className="single-post__author-info">
-            {isLoading ? <span>LOADING</span> : <h4>{userName}</h4>}
+            {isLoading ? <span>LOADING</span> : <h4>{author?.display_name}</h4>}
             <span>{formatDate(created_at)}</span>
           </div>
         </div>

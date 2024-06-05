@@ -1,11 +1,8 @@
 export interface Post {
   user_id: number;
-  likes_count: number;
   id: number;
-  title: string;
   content: string;
   created_at: string;
-  comments_count: number;
 }
 
 export interface Like {
@@ -24,10 +21,12 @@ export interface Comment {
 }
 
 export interface User {
-  name: string;
   id: number;
-  email: string;
+  display_name: string;
   avatar: string;
+  cover_image: string;
+  created_at: string;
+  email: string;
 }
 
 export interface SinglePostProps {
@@ -46,4 +45,12 @@ export interface SignupCredentials {
   fullName: string;
   email: string;
   password: string;
+}
+
+export interface AvatarUpdate {
+  avatar: File;
+}
+
+export interface CoverUpdate {
+  cover: File;
 }

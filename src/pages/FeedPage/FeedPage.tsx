@@ -15,6 +15,8 @@ const FeedPage = () => {
 
   if (error) console.error(error);
 
+  console.log(posts);
+
   if (isLoading) return <span>LOADING</span>;
 
   return (
