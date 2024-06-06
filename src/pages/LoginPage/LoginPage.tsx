@@ -4,8 +4,8 @@ import { useLogin } from "../../services/useLogin";
 import Button from "./../../components/Button/Button";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("kasparmarnat@gmail.com");
-  const [password, setPassword] = useState("verysafepassword123");
+  const [email, setEmail] = useState("qblytazccfiazevpga@ckptr.com");
+  const [password, setPassword] = useState("qblytazccfiazevpga");
   const navigate = useNavigate();
   const { login, isLoading } = useLogin();
 
