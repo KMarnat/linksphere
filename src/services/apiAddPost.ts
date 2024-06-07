@@ -8,5 +8,5 @@ export const addPost = async (content: string, userId: string): Promise<void> =>
     throw new Error("Post could not be added");
   }
 
-  return data;
+  return data!;
 };

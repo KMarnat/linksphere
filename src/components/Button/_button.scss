@@ -60,17 +60,9 @@
       transform: scale(1.2);
     }
 
-    & g {
-      & g {
-        fill: var(--clr-dim-gray);
-      }
-    }
-
     &--active {
-      & g {
-        & g {
-          fill: #6b20c0;
-        }
+      path {
+        stroke: #6b20c0;
       }
     }
   }

@@ -33,10 +33,6 @@ const ProfileBanner = () => {
     background: `linear-gradient(to bottom, ${bannerColor}, var(--bg-container) 50%)`,
   };
 
-  console.log(user);
-
-  console.log(userCover);
-
   return (
     <div className="profile" style={profileGradient}>
       <div className="profile-banner">
