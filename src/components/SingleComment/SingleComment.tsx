@@ -2,44 +2,33 @@ import Avatar from "../Avatar/Avatar";
 import { Comment } from "../../types/types";
 import { formatDate } from "./../../helpers/formatDate";
 import { useQuery } from "@tanstack/react-query";
-import { getUsers } from "../../services/apiUsers";
+import { getUserById } from "../../services/apiUserById";
 
 interface SingleCommentProps {
   comment: Comment;
 }
 
 const SingleComment: React.FC<SingleCommentProps> = ({ comment }) => {
-  console.log(comment);
-
   const {
     isLoading,
-    data: users,
+    data: commentor,
     error,
   } = useQuery({
-    queryKey: ["profile"],
-    queryFn: getUsers,
+    queryKey: ["profile", comment.user_id],
+    queryFn: () => getUserById(comment.user_id),
   });
 
-  console.log(users);
+  console.log(commentor);
 
   if (error) console.error(error);
-
-  const getUserName = (userId: number): string => {
-    const user = users?.find((user) => user.id === userId);
-    return user ? user.name : "Unknown User";
-  };
 
   return (
     <li className="single-comment">
       <div className="single-comment__connector"></div>
-      <Avatar />
+      <Avatar avatar={commentor?.avatar || ""} />
       <div className="single-comment__info">
         <div className="single-comment__author">
-          {isLoading ? (
-            <span>LOADING...</span>
-          ) : (
-            <p className="lead">{getUserName(comment?.user_id)}</p>
-          )}
+          {isLoading ? <span>LOADING...</span> : <p className="lead">{commentor?.display_name}</p>}
 
           <span>{formatDate(comment?.created_at)}</span>
         </div>

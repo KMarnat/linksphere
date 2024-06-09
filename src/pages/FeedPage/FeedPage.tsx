@@ -1,6 +1,6 @@
 import { getPosts } from "../../services/apiPosts";
 import { useQuery } from "@tanstack/react-query";
-import AddPost from "../../components/AddPost/AddPost";
+import AddPostOrComment from "../../components/AddPostOrComment/AddPostOrComment";
 import SinglePost from "../../components/SinglePost/SinglePost";
 
 const FeedPage = () => {
@@ -15,13 +15,11 @@ const FeedPage = () => {
 
   if (error) console.error(error);
 
-  console.log(posts);
-
   if (isLoading) return <span>LOADING</span>;
 
   return (
     <section className="feed">
-      <AddPost />
+      <AddPostOrComment postType="post" />
       {posts?.reverse().map((post) => (
         <SinglePost
           key={post.id}

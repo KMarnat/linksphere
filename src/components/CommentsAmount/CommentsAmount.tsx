@@ -16,16 +16,15 @@ const Comments: React.FC<CommentsProps> = ({ post_id, activeComments, setActiveC
     data: comments,
     error,
   } = useQuery({
-    queryKey: ["comments"],
-    queryFn: getComments,
+    queryKey: ["comments", post_id],
+    queryFn: () => getComments(post_id),
   });
 
-  const commentsCount = comments?.filter((comment) => comment.post_id === post_id).length;
+  const commentsCount = comments?.length;
 
   if (error) console.error(error);
 
   function handleClick() {
-    if (!commentsCount) return;
     setActiveComments((activeComments) => !activeComments);
   }
 
@@ -38,7 +37,7 @@ const Comments: React.FC<CommentsProps> = ({ post_id, activeComments, setActiveC
           <Button type="stats" onClick={handleClick}>
             {/* Add styles for when comments are visible */}
             {/* #6b20c0 #2E2B33 */}
-            <CommentIcon className={`btn__icon ${activeComments ? "btn__icon--active" : ""}`} />
+            <CommentIcon className={`btn__icon ${activeComments && "btn__icon--active"}`} />
           </Button>
           <span>{commentsCount}</span>
         </div>

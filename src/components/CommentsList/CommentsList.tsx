@@ -12,8 +12,8 @@ const CommentsList: React.FC<CommentListProps> = ({ post_id }) => {
     data: comments,
     error,
   } = useQuery({
-    queryKey: ["comments"],
-    queryFn: getComments,
+    queryKey: ["comments", post_id],
+    queryFn: () => getComments(post_id),
   });
 
   if (error) console.error(error);
@@ -23,9 +23,7 @@ const CommentsList: React.FC<CommentListProps> = ({ post_id }) => {
       {isLoading ? (
         <span>Loading comments...</span>
       ) : (
-        comments
-          ?.filter((comment) => comment.post_id === post_id)
-          .map((comment) => <SingleComment key={comment.id} comment={comment} />)
+        comments?.map((comment) => <SingleComment key={comment.id} comment={comment} />).reverse()
       )}
     </ul>
   );

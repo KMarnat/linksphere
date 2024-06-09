@@ -9,7 +9,7 @@ export const useAddLike = () => {
     mutationFn: ({ postId, userId }: { postId: number; userId: string }) => addLike(postId, userId),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["likes"] });
-      toast.success("Like added successfully!");
+      toast.success("Post liked!");
     },
     onError: (err: Error) => {
       console.error("Error adding like:", err);

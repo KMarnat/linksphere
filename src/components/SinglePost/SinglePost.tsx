@@ -9,6 +9,7 @@ import CommentsList from "../CommentsList/CommentsList";
 import { useState } from "react";
 import Menu from "../Menu/Menu";
 import { useUser } from "../../services/useUser";
+import AddPostOrComment from "../AddPostOrComment/AddPostOrComment";
 
 const SinglePost: React.FC<SinglePostProps> = ({ post, post_id, user_id, created_at }) => {
   const [activeComments, setActiveComments] = useState(false);
@@ -49,7 +50,12 @@ const SinglePost: React.FC<SinglePostProps> = ({ post, post_id, user_id, created
           />
         </div>
       </div>
-      {activeComments && <CommentsList post_id={post_id} />}
+      {activeComments && (
+        <>
+          <AddPostOrComment postType="comment" post_id={post_id} />
+          <CommentsList post_id={post_id} />
+        </>
+      )}
     </article>
   );
 };
