@@ -19,7 +19,7 @@ const CommentsList: React.FC<CommentListProps> = ({ post_id }) => {
   if (error) console.error(error);
 
   return (
-    <ul>
+    <ul className="comments-list">
       {isLoading ? (
         <span>Loading comments...</span>
       ) : (

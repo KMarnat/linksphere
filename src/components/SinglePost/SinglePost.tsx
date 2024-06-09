@@ -7,9 +7,12 @@ import { SinglePostProps } from "../../types/types";
 import { formatDate } from "../../helpers/formatDate";
 import CommentsList from "../CommentsList/CommentsList";
 import { useState } from "react";
+import Menu from "../Menu/Menu";
+import { useUser } from "../../services/useUser";
 
 const SinglePost: React.FC<SinglePostProps> = ({ post, post_id, user_id, created_at }) => {
   const [activeComments, setActiveComments] = useState(false);
+  const { user } = useUser();
 
   const {
     isLoading,
@@ -22,6 +25,9 @@ const SinglePost: React.FC<SinglePostProps> = ({ post, post_id, user_id, created
 
   if (error) console.error(error);
 
+  // Passing this to Menu as props
+  const postAuthor = author?.id === user?.id;
+
   return (
     <article className="single-post">
       <div className="single-post__content">
@@ -31,6 +37,7 @@ const SinglePost: React.FC<SinglePostProps> = ({ post, post_id, user_id, created
             {isLoading ? <span>LOADING</span> : <h4>{author?.display_name}</h4>}
             <span>{formatDate(created_at)}</span>
           </div>
+          <Menu postAuthor={postAuthor} />
         </div>
         <p className="single-post__post">{post}</p>
         <div className="single-post__stats">

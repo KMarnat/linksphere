@@ -26,15 +26,17 @@ const ProfilePage = () => {
     <section className="profilepage">
       <ProfileBanner />
 
-      {posts?.map((post) => (
-        <SinglePost
-          key={post.id}
-          post={post.content}
-          post_id={post.id}
-          user_id={post.user_id}
-          created_at={post.created_at}
-        />
-      ))}
+      {posts
+        ?.map((post) => (
+          <SinglePost
+            key={post.id}
+            post={post.content}
+            post_id={post.id}
+            user_id={post.user_id}
+            created_at={post.created_at}
+          />
+        ))
+        .reverse()}
     </section>
   );
 };
