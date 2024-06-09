@@ -2,7 +2,7 @@ import Avatar from "../Avatar/Avatar";
 import { Comment } from "../../types/types";
 import { formatDate } from "./../../helpers/formatDate";
 import { useQuery } from "@tanstack/react-query";
-import { getUserById } from "../../services/apiUserById";
+import { getProfileById } from "../../services/apiProfiles";
 
 interface SingleCommentProps {
   comment: Comment;
@@ -15,7 +15,7 @@ const SingleComment: React.FC<SingleCommentProps> = ({ comment }) => {
     error,
   } = useQuery({
     queryKey: ["profile", comment.user_id],
-    queryFn: () => getUserById(comment.user_id),
+    queryFn: () => getProfileById(comment.user_id),
   });
 
   console.log(commentor);

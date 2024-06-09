@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import { addPost } from "./apiAddPost"; // Ensure you have the correct path
+import { addPost } from "./apiPosts"; // Ensure you have the correct path
 
 export const useAddPost = () => {
   const queryClient = useQueryClient();

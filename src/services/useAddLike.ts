@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import { addLike } from "./apiAddLike";
+import { addLike } from "./apiLikes";
 
 export const useAddLike = () => {
   const queryClient = useQueryClient();

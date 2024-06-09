@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import ProfileBanner from "../../components/ProfileHero/ProfileHero";
-import { getUserPosts } from "../../services/apiUserPosts";
+import { getUserPosts } from "../../services/apiPosts";
 import { useUser } from "../../services/useUser";
 import SinglePost from "../../components/SinglePost/SinglePost";
 

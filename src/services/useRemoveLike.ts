@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
-import { removeLike } from "./apiRemoveLike";
+import { removeLike } from "./apiLikes";
 
 export const useRemoveLike = () => {
   const queryClient = useQueryClient();

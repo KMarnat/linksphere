@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import Comments from "../CommentsAmount/CommentsAmount";
 import Likes from "../LikesAmount/LikesAmount";
-import { getUserById } from "../../services/apiUserById";
+import { getProfileById } from "../../services/apiProfiles";
 import Avatar from "../Avatar/Avatar";
 import { SinglePostProps } from "../../types/types";
 import { formatDate } from "../../helpers/formatDate";
@@ -21,7 +21,7 @@ const SinglePost: React.FC<SinglePostProps> = ({ post, post_id, user_id, created
     error,
   } = useQuery({
     queryKey: ["profile", user_id],
-    queryFn: () => getUserById(user_id),
+    queryFn: () => getProfileById(user_id),
   });
 
   if (error) console.error(error);
